@@ -1,6 +1,9 @@
 #include "Player.h"
+#include <iostream>
 
-Player::Player(): money(1400) {
+Player::Player(): money(014) {
+    std::cout << "Digite a quantidade de dinheiro inicial do jogador: ";
+    std::cin >> money;
 }
 
 Player::~Player() {

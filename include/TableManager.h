@@ -1,7 +1,7 @@
 #ifndef TABLE_MANAGER_H
 #define TABLE_MANAGER_H
 
-//#include "Table.h"
+#include "Games/Table.h"
 #include "Player.h"
 
 class TableManager {
@@ -14,7 +14,7 @@ public:
 
     void assignPlayer(Player* p); 
     void showCatalog() const; 
-    //Table* getTable(int i);    
+    Games::Table* getTable(int i);    
 };
 
 #endif 

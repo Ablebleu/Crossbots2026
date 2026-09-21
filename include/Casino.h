@@ -1,13 +1,13 @@
 #ifndef CASINO_H
 #define CASINO_H
 
-//#include "Table.h"
+#include "Games/Table.h"
 #include "TableManager.h"
 #include "Player.h"
 
 class Casino {
 private:
-    //Table* game;        
+    Games::Table* game;        
     TableManager manager; 
     Player* player;      
 
