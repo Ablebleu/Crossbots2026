@@ -14,15 +14,15 @@ const int Player::getMoney() const {
 }
 
 const int Player::giveMoney(int m) {
-    if (m > 0){
+    if (m >= 0){
         if(m <= money) {
             money-=m;
             return m;
         }
-        //std::cout << "Quantidade invalida para saldo disponivel" << std::endl;
+        std::cout << "Quantidade invalida para saldo disponivel" << std::endl;
     }
-    //std::cout << "Quantidade invalida" << std::endl;
-    return 0;
+    std::cout << "Quantidade invalida" << std::endl;
+    return -1;
 }
 
 void Player::makeMoney(int m) {

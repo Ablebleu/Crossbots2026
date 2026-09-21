@@ -3,7 +3,7 @@
 #define CLEAR "\033[2J\033[1;1H"
 
 namespace Games {
-    Table::Table() : player(nullptr) {
+    Table::Table() : player(nullptr), moneyBet(0) {
     }
 
     Table::~Table() {
@@ -34,5 +34,9 @@ namespace Games {
             default:
                 return CONTINUE;
         }
+    }
+    
+    void Table::betMoney(int m){
+        moneyBet += m;
     }
 }

@@ -13,14 +13,16 @@ namespace Games {
     class Table {
     protected:
         Player* player; 
+        int moneyBet;
 
+        virtual void playRound() = 0;
     public:
         Table(); 
         virtual ~Table(); 
-
         void addPlayer(Player* p); 
-        virtual void playRound() = 0;
+
         virtual TableAction play();   
+        void betMoney(int m);
     };
 }
 

@@ -1,4 +1,5 @@
 #include "TableManager.h"
+#include "Games/Blackjack.h"
 #include <iostream>
 
 TableManager::TableManager() : player(nullptr) {
@@ -12,16 +13,16 @@ void TableManager::assignPlayer(Player* p) {
 }
 
 void TableManager::showCatalog() const {
-    std::cout << "1 - Roulette\n";
-    std::cout << "2 - Slot Machine\n";
-    std::cout << "3 - Blackjack\n";
-    std::cout << "4 - Poker\n";
+    std::cout << "1 - Blackjack\n";
+    std::cout << "2 - Poker\n";
+    std::cout << "3 - Roulette\n";
+    std::cout << "4 - Slot Machine\n";
 }
 
 Games::Table* TableManager::getTable(int i) {
     switch (i) {
         case 1:
-            return nullptr;
+            return new Games::Blackjack();
         case 2:
             return nullptr;
         case 3:

@@ -2,12 +2,13 @@
 #include <iostream>
 #define CLEAR "\033[2J\033[1;1H"
 
-Casino::Casino() : manager() {
+Casino::Casino() : manager(), game(nullptr), player(nullptr) {
     player = new Player(); 
 }
 
 Casino::~Casino() {
-    if (!player) delete player;
+    if (game) delete game;
+    if (player) delete player;
 }
 
 void Casino::showLogo() const {
@@ -40,6 +41,26 @@ void Casino::run() {
         if (option == 0) {
             std::cout << "Obrigado por jogar no CrossBets!\n";
             break;
+        }
+
+        if (option > 0) {
+            if (game) {
+                delete game;
+                game = nullptr;
+            }
+            game = manager.getTable(option);
+            if (game) {
+                game->addPlayer(player);
+                Games::TableAction action = Games::CONTINUE;
+                while (action == Games::CONTINUE) {
+                    action = game->play();
+                }
+                
+                if (action == Games::EXIT_SESSION) {
+                    std::cout << "Obrigado por jogar no CrossBets!\n";
+                    break;
+                }
+            } 
         }
     }
 }
