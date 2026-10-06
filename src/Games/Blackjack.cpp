@@ -21,7 +21,11 @@ namespace Games {
         int m = -1;
         while ( moneyBet == 0 || m < 0 ) {
             std::cin >> m;
-            if (m == 0) return;
+            if ( m <= 0 ) return;
+            if( m > player->getMoney()) {
+                std::cout << "Saldo insuficiente. Digite um valor menor ou igual a $" << player->getMoney() << ": ";
+                continue;
+            }
             betMoney(player->giveMoney(m));
         }
 

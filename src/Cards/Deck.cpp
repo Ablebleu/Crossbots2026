@@ -20,7 +20,7 @@ namespace Cards {
     }
 
     void Deck::insertBack(Card* card) {
-        deck.push_back(card);
+        deck.insert(deck.begin(), card);
     }
 
     Card* Deck::drawCard() {
